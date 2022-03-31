@@ -1,0 +1,68 @@
+<form *ngIf="showForm" style="direction: rtl; font-size:large;" #myForm="ngForm"
+    (submit)="handleSubmit(myForm.value)">
+    <div>
+        <p>מה הדבר הראשון שעולה לך לראש כשאתה קם בבוקר?</p>
+        <input type="radio" ngModel id="first" name="firstQuest" value=10 (click)="onFirstClick()">
+        <label for="first">עבודה</label><br>
+        <input type="radio" ngModel id="second" name="firstQuest" value=15 (click)="onFirstClick()">
+        <label for="second"> היום שלפניך</label><br>
+        <input type="radio" ngModel id="third" name="firstQuest" value=20 (click)="onFirstClick()">
+        <label for="third">משפחה</label><br>
+        <input type="radio" ngModel id="fourth" name="firstQuest" value=25 (click)="onFirstClick()">
+        <label for="fourth">"איזה יום יפה!!"</label><br>
+    </div>
+    <hr>
+    <div *ngIf="secQuest">
+        <p>כיצד תעדיף לבלות יום שלם?</p>
+        <input type="radio" ngModel id="first" name="secondQuest" value=10 (click)="onSecClick()">
+        <label for="first">משהו שלא עשית קודם</label><br>
+        <input type="radio" ngModel id="second" name="secondQuest" value=15 (click)="onSecClick()">
+        <label for="second"> פרויקט אישי</label><br>
+        <input type="radio" ngModel id="third" name="secondQuest" value=20 (click)="onSecClick()">
+        <label for="third">משפחה וחברים</label><br>
+        <input type="radio" ngModel id="fourth" name="secondQuest" value=25 (click)="onSecClick()">
+        <label for="fourth">חופשה כמה שיותר רחוק</label><br>
+    </div>
+    <hr>
+    <div *ngIf="thirdQuest">
+        <p>כשיש מסיבה, אתה בדרך כלל..</p>
+        <input type="radio" ngModel id="first" name="thirdQuest" value=10 (click)="onthirdClick()">
+        <label for="first">יושב בפינה</label><br>
+        <input type="radio" ngModel id="second" name="thirdQuest" value=15 (click)="onthirdClick()">
+        <label for="second"> עוזר למארח</label><br>
+        <input type="radio" ngModel id="third" name="thirdQuest" value=20 (click)="onthirdClick()">
+        <label for="third">זורם</label><br>
+        <input type="radio" ngModel id="fourth" name="thirdQuest" value=25 (click)="onthirdClick()">
+        <label for="fourth">מסמר הערב</label><br>
+    </div>
+    <hr>
+    <div *ngIf="fourthQuest">
+        <p>מתי אתה מאושר?</p>
+        <input type="radio" ngModel id="first" name="fourthQuest" value=10 (click)="onButtonClick()">
+        <label for="first">כשיש לי זמן לעצמי</label><br>
+        <input type="radio" ngModel id="second" name="fourthQuest" value=15 (click)="onButtonClick()">
+        <label for="second">כשאני עושה משהו חדש</label><br>
+        <input type="radio" ngModel id="third" name="fourthQuest" value=20 (click)="onButtonClick()">
+        <label for="third">כשאני עם חברים</label><br>
+        <input type="radio" ngModel id="fourth" name="fourthQuest" value=25 (click)="onButtonClick()">
+        <label for="fourth">כל הזמן!</label><br>
+    </div>
+    <div [hidden]="!showButton">
+        <div class="d-grid gap-2 col-6 mx-auto">
+            <button class="btn btn-outline-success btn-lg">Show My Flower</button>
+        </div>
+    </div>
+</form>
+
+<div *ngIf="!showForm">
+    <figure class="figure">
+        <img src={{imageSrc}} width=250px class="figure-img img-fluid rounded" alt="...">
+        <figcaption class="figure-caption">{{result}}</figcaption>
+    </figure>
+    <div class="d-grid gap-2 col-6 mx-auto">
+        <button class="btn btn-info btn-lg" (click)="handleSave()">Save Result</button>
+    </div>
+    <div class="d-grid gap-2 col-6 mx-auto">
+        <button class="btn btn-success btn-lg" (click)="onRestart()">Restart Questionnaire</button>
+    </div>
+</div>
